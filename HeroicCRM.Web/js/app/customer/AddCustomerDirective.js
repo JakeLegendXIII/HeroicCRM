@@ -5,7 +5,7 @@
 
 	function addCustomer() {
 		return {
-			templateUrl: '/js/app/customer/templates/addCustomer.tmpl.html',
+			templateUrl: '/customer/template/addCustomer.tmpl.cshtml',
 			controller: controller,
 			controllerAs: 'vm'
 		}

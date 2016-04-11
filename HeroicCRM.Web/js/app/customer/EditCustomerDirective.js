@@ -8,7 +8,7 @@
 			scope: {
 				customer: "="
 			},
-			templateUrl: '/js/app/customer/templates/editCustomer.tmpl.html',
+			templateUrl: '/customer/template/editCustomer.tmpl.cshtml',
 			controller: controller,
 			controllerAs: 'vm'
 		}

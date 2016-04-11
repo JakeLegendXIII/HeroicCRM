@@ -8,7 +8,7 @@
 			scope: {
 				customer: "="
 			},
-			templateUrl: '/js/app/opportunity/templates/addOpportunity.tmpl.html',
+			templateUrl: '/opportunity/template/addOpportunity.tmpl.cshtml',
 			controller: controller,
 			controllerAs: 'vm'
 		}
@@ -20,7 +20,7 @@
 
 		vm.saving = false;
 		vm.opportunity = {
-			customerId: $scope.customer.Id
+			customerId: $scope.customer.id
 		}
 
 		vm.add = add;

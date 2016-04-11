@@ -1,4 +1,9 @@
-﻿<form novalidate
+﻿@using HeroicCRM.Web.Helpers
+@model HeroicCRM.Web.Models.AddCustomerForm
+    @{ 
+        var customer = Html.Angular().ModelFor("vm.customer");
+    }
+<form novalidate
 	  name="vm.form"
 	  ng-submit="vm.add()">
 	<fieldset ng-disabled="vm.saving">
@@ -16,19 +21,26 @@
 				{{vm.errorMessage}}
 			</div>
 
-			<div class="form-group has-feedback">
+            @customer.FormGroupFor(x => x.Name)
+            @customer.FormGroupFor(x => x.WorkEmail)
+            @customer.FormGroupFor(x => x.HomeEmail)
+            @customer.FormGroupFor(x => x.WorkPhone)
+            @customer.FormGroupFor(x => x.HomePhone)
+            @customer.FormGroupFor(x => x.WorkAddress)
+            @customer.FormGroupFor(x => x.HomeAddress)
+			@*<div class="form-group has-feedback">
 				<label class="control-label" for="Name">Name</label>
 				<input required ng-model="vm.customer.name"
 					   class="form-control" name="Name" type="text" placeholder="Full name (ex: John Smith)...">
-			</div>
-
-			<div class="form-group has-feedback">
+			</div>*@
+            
+			@*<div class="form-group has-feedback">
 				<label class="control-label" for="WorkEmail">Work Email</label>
 				<input required ng-model="vm.customer.workEmail"
 					   class="form-control" name="WorkEmail" type="email" placeholder="user@domain.com...">
-			</div>
+			</div>*@
 
-			<div class="form-group has-feedback">
+			@*<div class="form-group has-feedback">
 				<label class="control-label" for="HomeEmail">Home Email</label>
 				<input ng-model="vm.customer.homeEmail"
 					   class="form-control" name="HomeEmail" type="email" placeholder="user@domain.com...">
@@ -56,7 +68,7 @@
 				<label class="control-label" for="HomeAddress">Home Address</label>
 				<textarea ng-model="vm.customer.homeAddress"
 						  class="form-control" name="HomeAddress" placeholder="123 Main Street..."></textarea>
-			</div>
+			</div>*@
 
 		</div>
 

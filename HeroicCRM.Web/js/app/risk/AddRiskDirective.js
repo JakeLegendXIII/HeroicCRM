@@ -8,7 +8,7 @@
 			scope: {
 				customer: "="
 			},
-			templateUrl: '/js/app/risk/templates/addRisk.tmpl.html',
+			templateUrl: '/risk/template/addRisk.tmpl.cshtml',
 			controller: controller,
 			controllerAs: 'vm'
 		}
@@ -20,7 +20,7 @@
 
 		vm.saving = false;
 		vm.risk = {
-			customerId: $scope.customer.Id
+			customerId: $scope.customer.id
 		}
 
 		vm.add = add;
@@ -30,7 +30,7 @@
 
 			$http.post('/Risk/Add', vm.risk)
 				.success(function (data) {
-					$scope.customer.Risks.push(data);
+					$scope.customer.risks.push(data);
 					//Close the modal
 					$scope.$parent.$close();
 				})
