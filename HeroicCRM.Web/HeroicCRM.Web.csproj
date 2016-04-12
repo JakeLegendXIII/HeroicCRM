@@ -221,6 +221,7 @@
     <Content Include="js\app\utility\ArrayExtensions.js" />
     <Content Include="js\app\utility\FormGroupValidationDirective.js" />
     <Content Include="js\app\utility\InputValidationIconsDirective.js" />
+    <Content Include="js\app\utility\MvcGridDirective.js" />
     <Content Include="js\app\utility\ParseDateFilter.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -261,7 +262,9 @@
     <Compile Include="Helpers\AngularHelper.cs" />
     <Compile Include="Helpers\AngularModelHelper.cs" />
     <Compile Include="Helpers\AngularNgRepeatHelper.cs" />
+    <Compile Include="Helpers\GridTag.cs" />
     <Compile Include="Helpers\JsonHtmlHelpers.cs" />
+    <Compile Include="Helpers\UIRatingTag.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Identity\AspNetIdentityRegistry.cs" />
     <Compile Include="Migrations\Configuration.cs" />

@@ -1,4 +1,5 @@
 ﻿using HtmlTags;
+using Microsoft.Web.Mvc;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
@@ -63,6 +64,19 @@ namespace HeroicCRM.Web.Helpers
             var funcType = typeof(Func<,>).MakeGenericType(typeof(TModel), prop.PropertyType);
 
             return Expression.Lambda(funcType, property, parameter);
+        }
+
+        public UIRatingTag UIRating(string model)
+        {
+            return new UIRatingTag(model);
+        }
+
+        public GridTag GridFor<TController>(Expression<Action<TController>> targetAction)
+            where TController : Controller
+        {
+            var dataUrl = _htmlHelper.BuildUrlFromExpression(targetAction);
+
+            return new GridTag(dataUrl);
         }
     }
 }
