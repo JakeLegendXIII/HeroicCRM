@@ -5,7 +5,7 @@
     }
 <form novalidate
 	  name="vm.form"
-	  ng-submit="vm.add()">
+	  ng-submit="vm.form.$valid && vm.add()">
 	<fieldset ng-disabled="vm.saving">
 
 		<div class="modal-header">
@@ -28,7 +28,9 @@
             @customer.FormGroupFor(x => x.HomePhone)
             @customer.FormGroupFor(x => x.WorkAddress)
             @customer.FormGroupFor(x => x.HomeAddress)
-			@*<div class="form-group has-feedback">
+
+			@*MarkUp Soup - Original Code
+            <div class="form-group has-feedback">
 				<label class="control-label" for="Name">Name</label>
 				<input required ng-model="vm.customer.name"
 					   class="form-control" name="Name" type="text" placeholder="Full name (ex: John Smith)...">

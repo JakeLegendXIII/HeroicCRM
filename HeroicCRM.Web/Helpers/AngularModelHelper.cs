@@ -60,7 +60,8 @@ namespace HeroicCRM.Web.Helpers
             var expression = ExpressionForInternal(property);
 
             var formGroup = new HtmlTag("div")
-                .AddClasses("form-group");
+                .AddClasses("form-group", "has-feedback")
+                .Attr("form-group-validation", name);
 
             var labelText = metadata.DisplayName ?? name.Humanize(LetterCasing.Title);
 
@@ -83,9 +84,23 @@ namespace HeroicCRM.Web.Helpers
                 .Attr("type", "text")
                 .Attr("placeholder", placeholder);
 
+            ApplyValidationInput(input, metadata);
+
             return formGroup
                 .Append(label)
                 .Append(input);
+        }
+
+        private void ApplyValidationInput(HtmlTag input, ModelMetadata metadata)
+        {
+            if (metadata.IsRequired)
+                input.Attr("required", "");
+
+            if (metadata.DataTypeName == "EmailAddress")
+                input.Attr("type", "email");
+
+            if (metadata.DataTypeName == "PhoneNumber")
+                input.Attr("pattern", @"[\ 0-9()-]+");
         }
     }
 }
